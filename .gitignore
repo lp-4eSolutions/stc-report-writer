@@ -21,9 +21,19 @@ working-copies/
 private/
 secrets/
 
-# Potentially sensitive school data exports
+# Potentially sensitive school data exports are ignored by default.
+# Only clearly named synthetic/example/template CSV fixtures may be committed.
 *.csv
 *.tsv
+
+!test-data/synthetic-*.csv
+!test-data/example-*.csv
+!test-data/template-*.csv
+!config/*.example.csv
+!config/*.template.csv
+!config/example-*.csv
+!config/template-*.csv
+
 *.ods
 *.xls
 *.xlsm

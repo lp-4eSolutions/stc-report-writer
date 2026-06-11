@@ -8,6 +8,7 @@ Use synthetic or anonymised data only. Never test with real pupil, staff, SEND, 
 - [ ] Confirm `OpenAI_Key` contains a valid local key only in the working copy.
 - [ ] Confirm the working copy will not be committed.
 - [ ] Confirm all test pupils, comments, and targets are synthetic.
+- [ ] Commit CSV fixtures only when clearly named `synthetic-*.csv`, `example-*.csv`, or `template-*.csv` under `test-data/`; live/exported school data remains ignored and must not be committed.
 - [ ] Confirm Office Scripts are assigned to the intended workbook buttons.
 - [ ] Confirm `ProtectionPwd` works for scripts that unprotect/re-protect.
 

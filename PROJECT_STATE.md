@@ -78,6 +78,10 @@ The main workflow is driven by `office-scripts/RunReports.osts`. Supporting scri
 - `workbook/README.md`
 - `.gitignore`
 
+## Latest documentation refinement
+
+- Refined `.gitignore` so generic CSV/TSV exports remain ignored, while clearly named synthetic/example/template CSV fixtures under `test-data/` and example/template config CSVs under `config/` can be committed.
+
 ## Uncertainties needing user confirmation
 
 - No standalone Power Query source files were present; Power Query behaviour is unknown.
