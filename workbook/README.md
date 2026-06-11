@@ -53,11 +53,11 @@ Before committing any workbook in this folder, check all of the following:
 - [ ] Hidden and very-hidden sheets have been inspected.
 - [ ] Named ranges have been inspected for hidden values or secrets.
 - [ ] Comments and notes have been inspected.
-- [ ] Document properties/metadata have been cleared or verified safe.
+- [ ] Document properties/metadata, custom XML/script metadata, and printer/page setup metadata have been cleared or verified safe.
 - [ ] Cached query data and connections have been inspected.
-- [ ] Token logs and error logs contain no real identifiers or sensitive data.
+- [ ] Style-emulation examples, style-profile output, token logs, and error logs are blank or explicitly approved synthetic/template content.
 - [ ] Formulas do not reference local paths or private files.
-- [ ] Buttons/shapes contain no sensitive labels or embedded data.
+- [ ] Buttons/shapes contain no sensitive labels or embedded data, and their Office Script assignments have been checked in Excel.
 - [ ] No accidental pasted data exists outside the visible working ranges.
 - [ ] The workbook opens cleanly and expected Office Scripts can be assigned manually in Excel.
 

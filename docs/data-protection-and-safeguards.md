@@ -89,14 +89,14 @@ Do not weaken these messages or their stop/alert behaviour without an explicit b
 - Style-emulation example reports.
 - Generated report output cached in the workbook.
 - Token/status log entries that may include IDs, timestamps, error messages, or other context.
-- Hidden sheets, named ranges, comments, document properties, and cached query data in workbook files.
+- Hidden sheets, named ranges, comments, document properties, custom XML/script metadata, printer/page setup parts, and cached query data in workbook files.
 - API keys stored in workbook named ranges.
 - Local exports, temporary Excel files, or copied live workbooks.
 
 ## Current repository risks found
 
-- The workbook template contains non-empty sample style-emulation content and token-log/error entries. These were not reproduced here, but their presence should be manually reviewed before distribution.
-- The workbook contains a placeholder API-key value, and documentation now requires that real keys must not be committed.
+- The workbook template contains non-empty sample style-emulation content, style-profile output, and token-log/error entries. These were not reproduced here, but their presence should be cleaned or explicitly approved before distribution.
+- The workbook contains a placeholder-like API-key value, and documentation requires that real keys must not be committed. The workbook also contains non-empty metadata fields and custom XML/script metadata that need manual Excel confirmation before distribution.
 - No robust repository-level test suite currently verifies name blocking, sentiment alerts, prompt constraints, or workbook cleaning.
 - No standalone prompt files make prompt review/versioning harder.
 - `CancelRun.osts` references a `CancelFlag`, but a matching named range and cancellation checkpoints in `RunReports.osts` were not evidenced.
@@ -106,7 +106,7 @@ Do not weaken these messages or their stop/alert behaviour without an explicit b
 - Add a robust pre-AI free-text scan for names/identifiers and prohibited sensitive categories before any API call.
 - Block or warn on SEND, safeguarding, medical, behaviour incident, staff names, and other high-risk terms in optional free text.
 - Add a workbook pre-commit cleaning checklist and keep only a clean anonymised template in `workbook/`.
-- Replace or remove sample style-emulation text and token-log entries if the workbook should be fully blank.
+- Replace or remove sample style-emulation text, style-profile output, and token-log/error entries if the workbook should be fully blank.
 - Add synthetic tests for missing fields, contradictions, name leakage, prompt output shape, and regeneration flows.
 - Consider moving prompts into version-controlled `prompts/` files for safer review, while preserving existing prompt constraints.
 - Keep API keys outside committed files; if workbook distribution requires a key cell, commit only a placeholder.
