@@ -1,0 +1,54 @@
+# Operating system and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Excel temporary/lock files
+~$*.xls*
+*.tmp
+*.temp
+
+# Local/live school data and exports - never commit
+local-data/
+live-data/
+real-data/
+exports/
+local-exports/
+working-copies/
+private/
+secrets/
+
+# Potentially sensitive school data exports are ignored by default.
+# Only clearly named synthetic/example/template CSV fixtures may be committed.
+*.csv
+*.tsv
+
+!test-data/synthetic-*.csv
+!test-data/example-*.csv
+!test-data/template-*.csv
+!config/*.example.csv
+!config/*.template.csv
+!config/example-*.csv
+!config/template-*.csv
+
+*.ods
+*.xls
+*.xlsm
+*.xlsb
+
+# Allow the checked-in blank template workbook only
+*.xlsx
+!workbook/Form Tutor Report Writer (BLANK).xlsx
+
+# Credentials and environment files
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets.json
