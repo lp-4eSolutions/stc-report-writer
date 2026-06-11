@@ -2,6 +2,13 @@
 
 All notable project changes should be recorded here.
 
+## 2026-06-11 - Workbook hygiene audit documentation
+
+- Added a workbook hygiene audit report for `workbook/Form Tutor Report Writer (BLANK).xlsx`.
+- Documented non-empty workbook template residue, including style-emulation examples, style-profile output, and token/error log rows, without reproducing sensitive values.
+- Strengthened workbook/data-protection documentation around metadata, custom XML/script metadata, and pre-commit workbook checks.
+- No Office Script, Power Query, prompt, config, formula, named-range, worksheet, protection, shape, button, or workbook behaviour was changed.
+
 ## 2026-06-11 - Documentation and `.gitignore` refinement
 
 - Refined `.gitignore` CSV rules so generic CSV/TSV exports remain ignored while clearly named synthetic/example/template CSV fixtures and config example/template CSVs can be committed.

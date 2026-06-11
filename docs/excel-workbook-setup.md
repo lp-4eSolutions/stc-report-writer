@@ -10,7 +10,7 @@ The checked-in workbook must be treated as a clean anonymised template only.
 
 ## Expected worksheets
 
-The inspected template workbook contains these worksheets:
+The inspected template workbook contains these worksheets. The 2026-06-11 workbook hygiene audit found all five worksheets marked visible in `xl/workbook.xml`; no hidden or very-hidden sheet state was evidenced in the package inspection.
 
 | Worksheet | Evidence-based role |
 | --- | --- |
@@ -70,7 +70,7 @@ The inspected workbook defines these named ranges:
 
 ## Tables and Power Query
 
-No Excel table definitions were found in the workbook XML inspection. No workbook query/connection parts were visible in the package inspection, and the repository's `power-query/` folder currently contains no query source files.
+No Excel table definitions were found in the workbook XML inspection. No workbook query/connection, external-link, pivot, or VBA parts were visible in the package inspection, and the repository's `power-query/` folder currently contains no query source files.
 
 Power Query setup is therefore `Not evidenced in repo` and needs confirmation.
 
@@ -89,7 +89,7 @@ The workbook package includes drawing shapes with names including:
 - `AnalyseStyleButton`
 - several rounded rectangles/pictures used for UI
 
-`RunReports.osts` specifically looks for a shape named `RunReports` and changes its text/format during a run. Exact Office Script assignments for buttons must be checked manually in Excel.
+`RunReports.osts` specifically looks for a shape named `RunReports` and changes its text/format during a run. The package also contains custom XML with script-ID-related metadata, but exact Office Script assignments for buttons must be checked manually in Excel.
 
 Expected manual assignments, based on script names and comments, are likely:
 

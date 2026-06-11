@@ -17,7 +17,7 @@ Last updated: 2026-06-11
   - `ToggleRegenAll.osts`
 - Placeholder/source folders: `config/`, `docs/`, `power-query/`, `prompts/`, and `test-data/`.
 - Workbook folder and template workbook: `workbook/Form Tutor Report Writer (BLANK).xlsx` and `workbook/README.md`.
-- Workbook package structure was inspected safely by reading workbook XML: sheet names, named ranges, row-one headers, data-validation ranges, formula locations, protection flags, drawing shape names, and non-empty cell counts. Real/sensitive row content was not reproduced in documentation.
+- Workbook package structure was inspected safely by reading workbook XML: sheet names, named ranges, row-one headers, hidden/visible states, data-validation ranges, formula locations, protection flags, drawing shape names, document property fields, custom XML/package parts, query/connection/table/comment parts, and non-empty cell counts. Real/sensitive row content was not reproduced in documentation.
 
 ## Current understanding of the system
 
@@ -75,8 +75,18 @@ The main workflow is driven by `office-scripts/RunReports.osts`. Supporting scri
 - `docs/data-protection-and-safeguards.md`
 - `docs/excel-workbook-setup.md`
 - `docs/testing-checklist.md`
+- `docs/workbook-hygiene-audit.md`
 - `workbook/README.md`
 - `.gitignore`
+
+## Latest workbook hygiene audit
+
+- Performed a package/XML hygiene audit of `workbook/Form Tutor Report Writer (BLANK).xlsx` and documented the findings in `docs/workbook-hygiene-audit.md`.
+- Inspected visible worksheet names and states, defined names, non-empty areas, formulas, data validation, comments/notes, tables, query/connection/external-link parts, drawing/shape names, document property fields, custom XML parts, and text patterns that could indicate API keys, local paths, private endpoints, email addresses, or high-risk school-data terms.
+- The workbook did not evidence hidden or very-hidden sheets, comments, tables, queries, connections, external links, pivot parts, VBA parts, local paths, private endpoint patterns, or API-key-like values.
+- The `ReportsData` and `TokenCol` named ranges appeared empty, and the `OpenAI_Key` named range contained a placeholder-like value rather than an API-key-like value.
+- The workbook is not yet a safe blank template because style-emulation examples, style-profile output, and token/error log rows remain non-empty, and document/custom metadata still requires manual Excel confirmation.
+- Current recommendation: keep the workbook only after specific cleaning, or replace it with a cleaner blank template if the residue cannot be confidently cleared without breaking workbook structure.
 
 ## Latest documentation refinement
 
@@ -88,17 +98,17 @@ The main workflow is driven by `office-scripts/RunReports.osts`. Supporting scri
 - No standalone prompt files were present; prompt text is currently embedded in Office Scripts.
 - No config source files were present; config is currently evidenced through workbook named ranges only.
 - No test-data files were present; expected fixtures and regression tests need confirmation.
-- The template workbook contains sample style-emulation text and token-log/error entries; these appear non-live from limited inspection, but their intended presence in the distributable template needs confirmation.
-- The workbook contains shapes/buttons, but exact script assignments cannot be fully confirmed from repository evidence alone.
+- The template workbook contains sample style-emulation text, style-profile output, and token-log/error entries. The package audit did not detect obvious API-key-like values, local paths, private endpoints, hidden sheets, or populated report-row data, but these non-empty areas must be cleaned or deliberately approved before the workbook is treated as a blank template.
+- The workbook contains shapes/buttons and custom XML script-ID metadata, but exact script assignments cannot be fully confirmed from repository evidence alone.
 - `CancelRun.osts` sets `CancelFlag` when it exists, but the audited workbook named ranges did not show `CancelFlag`, and `RunReports.osts` did not evidence cancel checkpoints.
 
 ## Recommended next implementation tasks
 
-1. Decide whether to keep, clean, or replace the checked-in workbook template after a manual Excel inspection of hidden metadata, cached values, and shape/script assignments.
+1. Clean or replace the checked-in workbook template: clear style-emulation examples, style-profile output, and old token/error log rows while preserving named ranges, formulas, validation, protection, worksheet structure, and shape/script compatibility; then manually verify in Excel.
 2. Export or document any Power Query queries/connections if they are part of the intended workflow.
 3. Extract prompts into `prompts/` or document that prompts intentionally remain embedded in Office Scripts.
 4. Add a synthetic test-data fixture set in `test-data/`.
 5. Create a manual Office Scripts test protocol using the scenarios in `docs/testing-checklist.md`.
 6. Confirm and, if needed, implement `CancelFlag` support consistently across workbook named ranges and `RunReports.osts`.
-7. Review style-emulation sample text and token-log entries in the workbook template and remove them if the template should be completely blank.
+7. After cleaning, manually verify workbook metadata, custom XML/script assignments, printer/page setup, formulas, validation, protection, and shapes/buttons in Excel before redistributing the template.
 8. Consider a lint/export process that converts `.osts` files to plain TypeScript for easier review while preserving Office Script import/export compatibility.
