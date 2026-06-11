@@ -86,7 +86,8 @@ The main workflow is driven by `office-scripts/RunReports.osts`. Supporting scri
 - The workbook did not evidence hidden or very-hidden sheets, comments, tables, queries, connections, external links, pivot parts, VBA parts, local paths, private endpoint patterns, or API-key-like values.
 - The `ReportsData` and `TokenCol` named ranges appeared empty, and the `OpenAI_Key` named range contained a placeholder-like value rather than an API-key-like value.
 - The workbook is not yet a safe blank template because style-emulation examples, style-profile output, and token/error log rows remain non-empty, and document/custom metadata still requires manual Excel confirmation.
-- Current recommendation: keep the workbook only after specific cleaning, or replace it with a cleaner blank template if the residue cannot be confidently cleared without breaking workbook structure.
+- A prior package-level cleaning attempt was removed from the pull-request diff because the review/PR path reported that binary workbook files are not supported; this branch therefore documents the required cleanup but does not change the checked-in `.xlsx`.
+- Current recommendation: keep the workbook only after specific cleaning through an approved binary-workbook route, or replace it with a cleaner blank template if the residue cannot be confidently cleared without breaking workbook structure.
 
 ## Latest documentation refinement
 
@@ -104,7 +105,7 @@ The main workflow is driven by `office-scripts/RunReports.osts`. Supporting scri
 
 ## Recommended next implementation tasks
 
-1. Clean or replace the checked-in workbook template: clear style-emulation examples, style-profile output, and old token/error log rows while preserving named ranges, formulas, validation, protection, worksheet structure, and shape/script compatibility; then manually verify in Excel.
+1. Clean or replace the checked-in workbook template through an approved binary-workbook route: clear style-emulation examples, style-profile output, and old token/error log rows while preserving named ranges, formulas, validation, protection, worksheet structure, and shape/script compatibility; then manually verify in Excel. If the PR system continues to reject `.xlsx` diffs, use manual Excel cleanup, a release artifact, or a repository-supported binary-file process instead of forcing the binary into this PR.
 2. Export or document any Power Query queries/connections if they are part of the intended workflow.
 3. Extract prompts into `prompts/` or document that prompts intentionally remain embedded in Office Scripts.
 4. Add a synthetic test-data fixture set in `test-data/`.

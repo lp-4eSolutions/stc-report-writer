@@ -199,6 +199,22 @@ Recommended follow-up cleaning task, if the project owner wants this workbook to
 5. Clear or normalise document properties in Excel if they contain personal or organisation-specific metadata.
 6. Reopen the cleaned workbook in Excel and verify shape/button script assignments, protection, validation drop-downs, formulas, and Office Script workflows still work.
 
+## PR-safe remediation after binary PR rejection - 2026-06-11
+
+A package-level workbook cleaning pass was attempted for `workbook/Form Tutor Report Writer (BLANK).xlsx`, but the resulting `.xlsx` change was removed from the pull-request diff because the review/PR path reported that binary files are not supported. This documentation update therefore records the required cleanup and validation without changing the workbook binary in this PR.
+
+Required workbook cleanup remains:
+
+- Clear `Settings!B4:F4` while preserving the `StyleExamples` named range, formatting, validation, protection, row/column layout, and worksheet structure.
+- Clear `Settings!D3` and `Settings!F3` while preserving the `StyleProfileText` and `StyleProfileJSON` named ranges, formatting, validation, protection, row/column layout, and worksheet structure.
+- Clear all old `TokenLog` rows below the header while preserving the `TokenLog` worksheet and the header/column structure expected by `office-scripts/RunReports.osts`.
+- Rebuild or compact shared strings, and inspect comments, custom XML, document properties, and other package text so cleared text is not retained in package parts.
+- Normalise personal or organisation-specific document properties only where this can be done safely without damaging workbook compatibility; otherwise leave them for manual Excel review.
+
+Any future cleaning route should still verify that worksheet names and visibility states, defined names/named ranges, formulas, data-validation ranges, protection XML, drawing/shape names, package parts, `ReportsData`, and `TokenCol` remain unchanged, and that no API-key-like values, local paths, private endpoints, obvious high-risk school-data terms, or cleared residue strings remain in package text.
+
+Final recommendation for this PR-safe remediation: keep this PR documentation-only and perform the workbook binary cleanup through a route that supports `.xlsx` review/storage, or clean the workbook manually in Excel and attach/distribute it through an approved binary artifact process. Until that happens, the checked-in workbook should still be treated as needing the specific cleaning listed above before it is used as a blank template.
+
 ## Workbook parts that cannot be checked reliably outside Excel
 
 The following require manual confirmation in Excel or with Microsoft 365 tooling:
