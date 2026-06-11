@@ -95,7 +95,7 @@ Do not weaken these messages or their stop/alert behaviour without an explicit b
 
 ## Current repository risks found
 
-- The workbook template contains non-empty sample style-emulation content, style-profile output, and token-log/error entries. These were not reproduced here, but their presence should be cleaned or explicitly approved before distribution.
+- The workbook template contains non-empty sample style-emulation content, style-profile output, and token-log/error entries. These were not reproduced here, but their presence should be cleaned or explicitly approved before distribution. If the PR/review path rejects workbook binaries, perform that cleanup through an approved binary-workbook route rather than leaving a partially reviewable change.
 - The workbook contains a placeholder-like API-key value, and documentation requires that real keys must not be committed. The workbook also contains non-empty metadata fields and custom XML/script metadata that need manual Excel confirmation before distribution.
 - No robust repository-level test suite currently verifies name blocking, sentiment alerts, prompt constraints, or workbook cleaning.
 - No standalone prompt files make prompt review/versioning harder.

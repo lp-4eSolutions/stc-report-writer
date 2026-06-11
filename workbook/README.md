@@ -43,6 +43,8 @@ The workbook currently contains non-empty template/config/sample/log content. Be
 
 If any real or sensitive data is found, remove or replace the workbook and purge the sensitive data from repository history according to the organisation's incident process.
 
+If the pull-request or review system rejects binary `.xlsx` changes, do not force the workbook binary into that PR. Instead, complete the same cleaning and verification checklist locally in Excel or with a package-level process, then distribute the cleaned template through an approved binary-file route such as a supported repository process, release artifact, or managed template library.
+
 ## Pre-commit workbook checklist
 
 Before committing any workbook in this folder, check all of the following:

@@ -2,6 +2,12 @@
 
 All notable project changes should be recorded here.
 
+## 2026-06-11 - PR-safe workbook cleaning remediation
+
+- Removed the workbook binary modification from the pull-request diff because the review/PR path reported that binary files are not supported.
+- Kept the workbook-cleaning requirements as documentation so the template residue can be cleared manually in Excel or by a local package-level process outside the unsupported binary PR path.
+- No Office Script, Power Query, prompt, config, workbook binary, formula, named-range, worksheet, protection, shape, button, or report-generation logic is changed by this remediation.
+
 ## 2026-06-11 - Workbook hygiene audit documentation
 
 - Added a workbook hygiene audit report for `workbook/Form Tutor Report Writer (BLANK).xlsx`.
