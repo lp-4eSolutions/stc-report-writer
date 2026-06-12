@@ -23,6 +23,12 @@ This file records decisions evidenced by repository contents and documentation d
 - Documentation avoids quoting workbook sample-report content and any report/free-text data.
 - `.gitignore` was added to reduce accidental commits of live workbook copies, local exports, real data folders, credentials, and temporary Excel files.
 
+
+## Documentation decisions made on 2026-06-12
+
+- This repository is being archived/mothballed as a ChatGPT + Codex + GitHub workflow trial rather than continued as the production report writer project.
+- Any future production report-writer work should start in a fresh repository, or this repository should be deliberately forked/unarchived with a fresh safety and workbook-hygiene review.
+
 ## Assumptions future work depends on
 
 - The checked-in workbook is intended to be a clean template, not a live working workbook.
