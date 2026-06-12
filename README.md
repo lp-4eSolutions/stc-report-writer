@@ -1,8 +1,10 @@
 # STC Report Writer
 
+> **Archive/status notice (2026-06-12):** This is an archived trial repository. It was used to test the ChatGPT + Codex + GitHub workflow around a school-report-writer idea, and it is **not** the active production report writer project. Do **not** use this repository, its workbook, or its scripts with real school data. Any future production work should start in a fresh repository, or this repository should be explicitly unarchived/forked with a deliberate review of which files are safe to carry forward.
+
 An Excel-based form tutor report writer that uses Office Scripts and the OpenAI Chat Completions API to generate short yearly form-time report comments from workbook inputs.
 
-This repository is intended to be the source of truth for the workbook template, Office Scripts, project documentation, and safe-development rules. It must not contain live school data.
+Historically, this repository acted as a source of truth for a trial workbook template, Office Scripts, project documentation, and safe-development rules. It must not contain live school data. In its archived state, treat it as a workflow reference only, not as a deployable or production-safe template.
 
 ## Project purpose
 
@@ -80,3 +82,17 @@ Anything beyond these points is not evidenced in the repository and needs confir
 ## Data warning
 
 No real school data should be committed to this repository. Before committing any workbook or data file, check hidden sheets, cached query data, comments, named ranges, workbook metadata, formulas, shapes, local exports, and accidental pasted data.
+
+## Archived trial status
+
+This repository is being mothballed as a readable record of a trial workflow rather than continued as the production report writer project.
+
+Useful items that may be worth copying deliberately into a future real project include:
+
+- the `AGENTS.md` pattern for repository-specific safety and documentation instructions;
+- the `PROJECT_STATE.md` structure for evidence-based state tracking;
+- `docs/testing-checklist.md` as a starting point for manual and regression checks;
+- `docs/workbook-hygiene-audit.md` as a model for documenting workbook-template residue and cleanup needs;
+- Git + Codex + pull-request workflow notes captured across `CHANGELOG.md`, `PROJECT_STATE.md`, and commit history.
+
+Do not copy workbook binaries, scripts, prompts, config assumptions, or sample content into a real project without a fresh data-protection and workbook-hygiene review. The checked-in workbook still needs manual confirmation/cleaning before any redistribution, and no further implementation work is planned in this repository.

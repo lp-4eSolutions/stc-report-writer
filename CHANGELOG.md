@@ -2,6 +2,14 @@
 
 All notable project changes should be recorded here.
 
+
+## 2026-06-12 - Repository mothballing for archive
+
+- Added archive/trial status documentation making clear that this repository was used to test the ChatGPT + Codex + GitHub workflow and is not the active production report writer project.
+- Added a concise archive note under `docs/` with workflow lessons, limitations, data-safety reminders, and restart guidance.
+- Recorded final project-state notes and the durable decision to archive this trial repository rather than continue it as the production project.
+- No Office Script, Power Query, prompt, config, workbook binary, formula, named-range, worksheet, protection, shape, button, test-data, or report-generation behaviour was changed.
+
 ## 2026-06-11 - PR-safe workbook cleaning remediation
 
 - Removed the workbook binary modification from the pull-request diff because the review/PR path reported that binary files are not supported.
